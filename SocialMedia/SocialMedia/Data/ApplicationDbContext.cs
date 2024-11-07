@@ -10,5 +10,6 @@ namespace SocialMedia.Data
             : base(options)
         {
         }
+        public DbSet<Broadcast> Broadcasts { get; set; }
     }
 }

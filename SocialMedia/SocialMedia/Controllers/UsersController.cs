@@ -7,18 +7,18 @@ namespace SocialMedia.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly ApplicationDbContext _dbcontext;
+        private readonly ApplicationDbContext _dbContext;
 
         public UsersController(ApplicationDbContext dbContext)
         {
-               _dbcontext = dbContext;  
+               _dbContext = dbContext;  
         }
 
         public async Task<IActionResult> Index(UsersIndexViewModel viewModel)
         {
             if (viewModel.Search != null)
             { 
-                var users = await _dbcontext.Users.Where(u => u.Name.Contains(viewModel.Search)).ToListAsync();
+                var users = await _dbContext.Users.Where(u => u.Name.Contains(viewModel.Search)).ToListAsync();
                
                 viewModel.Result = users;
             }
